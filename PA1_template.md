@@ -91,7 +91,8 @@ median(totalSteps$steps)
 
 ```r
 averageSteps <- aggregate(steps ~ interval, activity, mean)
-plot(averageSteps$interval, averageSteps$steps, type = "l", xlab = "5-minute interval", ylab = "Average across all days", main = "Daily Activity Pattern")
+plot(averageSteps$interval, averageSteps$steps, type = "l",
+     xlab = "5-minute interval", ylab = "Average across all days", main = "Daily Activity Pattern")
 ```
 
 ![](PA1_template_files/figure-html/unnamed-chunk-6-1.png)<!-- -->
@@ -164,8 +165,10 @@ interpolatedActivity$weekday <- factor(weekday, levels = c("weekday", "weekend")
 ```r
 library(lattice)
 dayAverageSteps = aggregate(steps ~ interval + weekday, interpolatedActivity, mean)
-xyplot(steps ~ interval | weekday, data = dayAverageSteps, type = "l", layout = c(1, 2),
-       xlab = "Time interval", ylab ="Mean number of steps", main = "Activity Patterns between Weekdays and Weekends")
+xyplot(steps ~ interval | weekday, data = dayAverageSteps,
+       type = "l", layout = c(1, 2),
+       xlab = "Time interval", ylab ="Mean number of steps",
+       main = "Activity Patterns between Weekdays and Weekends")
 ```
 
 ![](PA1_template_files/figure-html/unnamed-chunk-13-1.png)<!-- -->
